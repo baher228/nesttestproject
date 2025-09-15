@@ -21,8 +21,6 @@ import { WebsocketGateway } from './wesocket.gateway';
     ConfigModule.forRoot({ isGlobal: true }),
     MikroOrmModule.forRoot(mikroConfig),
     FlowersModule,
-    UsersModule,
-    PostModule,
     ClientsModule.register([
       {
         name: 'ORDER_SERVICE',

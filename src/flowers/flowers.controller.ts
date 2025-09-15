@@ -9,24 +9,26 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { FlowersService } from './flowers.service';
-import { AuthGuard } from 'src/conception/guard';
-import { LoggingInterceptor } from 'src/conception/interceptor';
+// import { AuthGuard } from 'src/conception/guard';
+// import { LoggingInterceptor } from 'src/conception/interceptor';
 import { CreateFlowerDto } from './dto/create-flower.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('flowers')
-@UseInterceptors(LoggingInterceptor)
+@ApiTags('Flowers')
+//@UseInterceptors(LoggingInterceptor)
 export class FlowersController {
   constructor(private readonly flowersService: FlowersService) {}
 
   @Get()
-  @UseGuards(AuthGuard)
+  //@UseGuards(AuthGuard)
   findAll() {
     return this.flowersService.findAll();
   }
 
   @Post()
   @UsePipes(new ValidationPipe())
-  @UseGuards(AuthGuard)
+  //@UseGuards(AuthGuard)
   async create(@Body() CreateFlowerDto: CreateFlowerDto) {
     return await this.flowersService.create(CreateFlowerDto);
   }

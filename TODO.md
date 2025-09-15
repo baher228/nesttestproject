@@ -1,0 +1,3 @@
+- [x] Fix flowers.controller.spec.ts: Change provider token from 'FlowersService' to FlowersService class
+- [x] Fix flowers.service.spec.ts: Rewrite the test to properly test FlowersService, mock FlowerRepository and EntityManager, add it blocks
+- [x] Run yarn test to verify fixes
