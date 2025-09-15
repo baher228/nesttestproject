@@ -1,7 +1,6 @@
 import {
   Controller,
   Get,
-  Query,
   UseGuards,
   UseInterceptors,
   Body,
@@ -10,7 +9,6 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { FlowersService } from './flowers.service';
-import { ParseIntPipe } from 'src/conception/pipe';
 import { AuthGuard } from 'src/conception/guard';
 import { LoggingInterceptor } from 'src/conception/interceptor';
 import { CreateFlowerDto } from './dto/create-flower.dto';
@@ -31,10 +29,5 @@ export class FlowersController {
   @UseGuards(AuthGuard)
   async create(@Body() CreateFlowerDto: CreateFlowerDto) {
     return await this.flowersService.create(CreateFlowerDto);
-  }
-
-  @Get('new-order')
-  newOrder(){
-
   }
 }

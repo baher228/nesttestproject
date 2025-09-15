@@ -8,5 +8,6 @@ import { Flower } from './entities/flowers.entity';
   imports: [MikroOrmModule.forFeature([Flower])],
   controllers: [FlowersController],
   providers: [FlowersService],
+  exports: [FlowersService],
 })
 export class FlowersModule {}
